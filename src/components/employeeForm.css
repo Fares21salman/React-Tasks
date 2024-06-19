@@ -1,0 +1,75 @@
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 460px;
+  margin: auto;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.formcss {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.btnstyle {
+  background-color: #007bff;
+  color: white;
+}
+
+.btnstyle:hover {
+  background-color: #0056b3;
+}
+
+.employee-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: chocolate;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.employee-card:hover {
+  transform: scale(1.05);
+}
+
+.employee-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.new {
+  background-color: white;
+  width: auto;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+}
