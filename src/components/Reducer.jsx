@@ -1,48 +1,20 @@
-import { useReducer } from "react";
+import React from "react";
+import { useGlobalState } from "../context/GlobalState";
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "incremented_age": {
-      return {
-        name: state.name,
-        age: state.age + 1,
-      };
-    }
-    case "changed_name": {
-      return {
-        name: action.nextName,
-        age: state.age,
-      };
-    }
-    case "decremented_age": {
-      return {
-        name: state.name,
-        age: state.age - 1,
-      };
-    }
-  }
-  throw Error("Unknown action: " + action.type);
-}
+const Reducer = () => {
+  const { state, dispatch } = useGlobalState();
 
-const initialState = { name: "Salman", age: 22 };
-
-export default function Form() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  function handleButtonClick() {
+  const handleButtonClick = () => {
     dispatch({ type: "incremented_age" });
-  }
+  };
 
-  function handleInputChange(e) {
-    dispatch({
-      type: "changed_name",
-      nextName: e.target.value,
-    });
-  }
-
-  function handleDecButtonClick() {
+  const handleDecButtonClick = () => {
     dispatch({ type: "decremented_age" });
-  }
+  };
+
+  const handleInputChange = (e) => {
+    dispatch({ type: "changed_name", nextName: e.target.value });
+  };
 
   return (
     <>
@@ -54,4 +26,6 @@ export default function Form() {
       </p>
     </>
   );
-}
+};
+
+export default Reducer;

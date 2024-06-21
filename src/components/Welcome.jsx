@@ -1,9 +1,10 @@
-import DateAndTime from "./DateAndTime";
 import React, { useState, useEffect } from "react";
+import { useGlobalState } from "../context/GlobalState";
+import DateAndTime from "./DateAndTime";
 import "./employeeForm.css";
 
 const Welcome = () => {
-  const name = "Salman";
+  const { state } = useGlobalState();
   const [dateTime, setDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Welcome = () => {
       }}
     >
       <h1 style={{ backgroundColor: "white" }}>
-        Welcome to <span>{name}</span> website!!!
+        Welcome to <span>{state.name}</span> website!!!
       </h1>
       <DateAndTime />
       <h2 style={{ backgroundColor: "white" }}>Current Time: {currTime}</h2>

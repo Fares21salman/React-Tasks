@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 import "./App.css";
 import EmployeeList from "./components/EmployeeList";
 import EmployeeForm from "./components/EmployeeForm";
 import Reducer from "./components/Reducer";
 import Welcome from "./components/Welcome";
-import React, { useState } from "react";
+import { GlobalStateProvider } from "./context/GlobalState";
+import Forms from "./components/Forms";
 
 function App() {
   const [employees, setEmployees] = useState([]);
@@ -11,18 +13,22 @@ function App() {
   const addEmployee = (employee) => {
     setEmployees([...employees, employee]);
   };
+
   return (
-    <div className="App">
-      <div className="Welcome">
-        <Welcome />
+    <GlobalStateProvider>
+      <div className="App">
+        <div className="Welcome">
+          <Welcome />
+        </div>
+        <hr color="#333" />
+        <div>
+          <EmployeeForm addEmployee={addEmployee} />
+          <EmployeeList employees={employees} />
+          <Reducer />
+          <Forms />
+        </div>
       </div>
-      <hr color="#333" />
-      <div>
-        <EmployeeForm addEmployee={addEmployee} />
-        <EmployeeList employees={employees} />
-        <Reducer />
-      </div>
-    </div>
+    </GlobalStateProvider>
   );
 }
 
